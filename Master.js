@@ -21,11 +21,12 @@
                 }
             }
         if(reason === "xp"){
-            let nodes = ns.read("foundnodes.txt");
+            let nodes = ns.read("foundnodes.txt").split(",");
             nodeReset(ns);
             serverReset(ns);
             await ns.sleep(10000);
             for(let each of nodes){
+                ns.tprint(each);
                 let ram =ns.getServerRam(each)[0];
                 ns.scp("weak.js", "home", each);
                 
