@@ -1,6 +1,6 @@
 let config = {
     folder: 'scripts',
-    rootUrl: 'https://raw.githubusercontent.com/trevorlohr/bitburner_scripts/main/',
+    rootUrl: 'https://raw.githubusercontent.com/trevorlohr/bitburner_scripts/master/',
     serverPrefix: 'trevorlohr',
   };
   /*
