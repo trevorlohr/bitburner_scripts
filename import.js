@@ -1,7 +1,7 @@
 let config = {
     folder: 'scripts',
-    rootUrl: 'https://raw.githubusercontent.com/ChaelCodes/bitburner-scripts/main/',
-    serverPrefix: 'ChaelPwns',
+    rootUrl: 'https://raw.githubusercontent.com/trevorlohr/bitburner_scripts/main/',
+    serverPrefix: 'trevorlohr',
   };
   /*
    * This will import all files listed in importFiles.
@@ -24,15 +24,22 @@ let config = {
   
   async function importFiles(ns) {
     let files = [
-      'autoHack.js',
-      'autoRemoteHack.js',
-      'buyHacknet.js',
-      'dashboard.js',
-      'hack.js',
-      'hax.js',
-      'purchaseServers.js',
-      'remoteHack.js',
-      'serverStatus.js',
+      'buyservers.js',
+      'deepscan.js',
+      'hackutility.js',
+      'Master.js',
+      'masterutility.js',
+      'newStock.js',
+      'node-hack.js',
+      'Node.js',
+      'nodes-process.js',
+      'scanner.js',
+      'server-hack.js',
+      'Server.js',
+      'servers-process.js',
+      'serverutility.js',
+      'stockmarket.js',
+      'weak.js',
     ];
     let filesImported = true;
     for (let file of files) {
@@ -52,6 +59,6 @@ let config = {
     return config.serverPrefix;
   }
   
-  export function getHackScript() {
-    return `/${getFolder()}/hack.js`;
+  export function getMasterScript() {
+    return `/${getFolder()}/Master.js`;
   }
