@@ -4,7 +4,7 @@
         'import.js'
       ];
       
-      var scripts = ls(getHostname(), "script");
+      var scripts = ns.ls(getHostname(), ".js");
       for (let script in scripts) {
           if (script in exclude){
               continue;
