@@ -6,7 +6,7 @@
       
       var scripts = ns.ls(ns.getHostname(), ".js");
       for (let script in scripts) {
-          if (scripts[script] in exclude){
+          if (exclude.includes(scripts[script])){
               continue;
           }
           if (ns.rm(scripts[script]))
