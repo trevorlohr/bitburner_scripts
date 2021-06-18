@@ -1,4 +1,4 @@
-    //**************************//
+//**************************//
     //*        Master.js        //
     //*  This script runs all   //
     //* processes for mechanics //
@@ -14,10 +14,10 @@
     
     export async function main(ns) {
         let reason = ns.args[0];
-        const ps = ns.ps("home");
-            for (let i = 0; i < ps.length; ++i) {
-                if(ps[i].filename !== "Master.js"){
-                    ns.scriptKill(ps[i].filename, "home")
+        const processes = ns.ps("home");
+            for (let i = 0; i < processes.length; ++i) {
+                if(processes[i].filename !== "Master.js"){
+                    ns.scriptKill(processes[i].filename, "home")
                 }
             }
         if(reason === "xp"){
@@ -78,7 +78,7 @@
             ns.getScriptRam("node-hack.js", "home")
         );
         for (let target of targets) {
-            await runHack(ns, "node-hack.js", "home", threads, target);
+            await runHack(ns, "node-hack.js", "home", threads, targets[target]);
             await ns.sleep(2000);
         }
         if(ns.getServerRam("home")[0] - ns.getServerRam("home")[0] > ns.getScriptRam("stockmarket.js", "home")){
