@@ -71,7 +71,7 @@
                 await ns.run("stockmarket.js", 1);
             }
         }
-        let targets = ns.read("targets.txt");
+        let targets = ns.read("targets.txt").split(",");
         let ramLeft = totalRam - homeRamInfo[1];
         let threads = Math.floor(
             Math.floor((ramLeft * 0.8) / targets.length) /
