@@ -1,14 +1,7 @@
 export async function main(ns) {
-    let reason = ns.args[0];
-    const processes = ns.ps("home");
-    for (let i = 0; i < processes.length; ++i) {
-        if (processes[i].filename !== "Master.js") {
-            ns.scriptKill(processes[i].filename, "home")
-        }
-    }
     await ns.run("scanner.js", 1);
     await ns.sleep(8000);
-    let homeRamInfo = ns.getServerRam("home");
+
     let totalRam = homeRamInfo[0];
     let targets = ns.read("targets.txt").split(",");
     let ramLeft = totalRam - homeRamInfo[1];
