@@ -29,7 +29,8 @@ let config = {
       'stockmarket.js',
       'weak.js',
       'remove.js',
-      'import.js'
+      'import.js',
+      'new.js'
     ];
     let filesImported = true;
     for (let file of files) {
