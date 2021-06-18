@@ -1,7 +1,7 @@
 export async function main(ns) {
     await ns.run("scanner.js", 1);
     await ns.sleep(8000);
-
+    let homeRamInfo = ns.getServerRam("home");
     let totalRam = homeRamInfo[0];
     let targets = ns.read("targets.txt").split(",");
     let ramLeft = totalRam - homeRamInfo[1];
