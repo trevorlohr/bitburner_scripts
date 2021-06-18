@@ -1,4 +1,4 @@
-import { runHack, getNumOfThreadsPerTarget } from "hackutility.js";
+import { runHack } from "hackutility.js";
 
 export async function main(ns) {
     await ns.run("scanner.js", 1);
