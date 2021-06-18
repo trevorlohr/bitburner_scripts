@@ -39,7 +39,8 @@ let config = {
       'serverutility.js',
       'stockmarket.js',
       'weak.js',
-      'remove.js'
+      'remove.js',
+      'import.js'
     ];
     let filesImported = true;
     for (let file of files) {
