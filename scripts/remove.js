@@ -4,15 +4,15 @@
         'import.js'
       ];
       
-      var scripts = ns.ls(getHostname(), ".js");
+      var scripts = ns.ls(ns.getHostname(), ".js");
       for (let script in scripts) {
-          if (script in exclude){
+          if (scripts[script] in exclude){
               continue;
           }
-          if (rm(script))
-              ns.tprint(`✔️ ${script} deleted`);
+          if (ns.rm(scripts[script]))
+              ns.tprint(`✔️ ${scripts[script]} deleted`);
           else{
-              ns.tprint(`❌ ${script} not deleted. `);
+              ns.tprint(`❌ ${scripts[script]} not deleted. `);
           }
       }
     }
