@@ -79,7 +79,7 @@
         );
         for (let target of targets) {
             ns.tprint(target);
-            await runHack(ns, "node-hack.js", "home", threads, targets[target]);
+            await runHack(ns, "node-hack.js", "home", threads, target);
             await ns.sleep(2000);
         }
         if(ns.getServerRam("home")[0] - ns.getServerRam("home")[0] > ns.getScriptRam("stockmarket.js", "home")){
