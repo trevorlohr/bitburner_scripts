@@ -33,7 +33,7 @@ export async function main(ns) {
           );
         }
         else{
-          crackNode(node.name);
+          crackNode(node);
           ns.scp("node-hack.js",node.name);
         }
       }
