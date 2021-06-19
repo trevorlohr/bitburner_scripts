@@ -5,9 +5,9 @@ export async function main(ns) {
   var allNodes = [];
 
   while (true) {
-    let targets = ns.read("targets.txt");
+    let targets = ns.read("targets.txt").split(",");
     init();
-    let numOfTargets = ns.read("targets.txt").split(",").length;
+    let numOfTargets = targets.length;
     for (let target of targets) {
       for (let node of allNodes) {
         ns.tprint(node.name)
