@@ -5,10 +5,10 @@ export function getServers(ns) {
     let numOfTargets = ns.read("targets.txt").length;
     let servers = ns.getPurchasedServers();
     for (let each of servers){
-        let ram = ns.getServerRam(each);
+        let totalRam = ns.getServerMaxRam(each);
 
         let numOfThreadsPerTarget = getNumOfThreadsPerTarget(ns, each, numOfTargets, "server-hack.js");
-        let newServer = new Server(each,ram[0],numOfThreadsPerTarget);
+        let newServer = new Server(each,totalRam,numOfThreadsPerTarget);
         res.push(newServer);
     }
     return res;
