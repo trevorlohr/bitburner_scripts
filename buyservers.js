@@ -6,7 +6,7 @@ export async function main(ns) {
     return topGB < ns.getPurchasedServerMaxRam();
   };
 
-  const SAFETY_THRESH = 1000000000;
+  const SAFETY_THRESH = 100000000;
 
   if(!moneyCheck(64)){ns.exit()}
   let servers = ns.getPurchasedServers();
