@@ -10,7 +10,6 @@ export async function main(ns) {
     let numOfTargets = targets.length;
     for (let target of targets) {
       for (let node of allNodes) {
-        ns.tprint(node.name)
         if (
           node.name=== "home" ||
           node.name.startsWith("Hack") ||
