@@ -1,8 +1,8 @@
 export function getNumOfThreadsPerTarget(ns, node, numOfTargets, script) {
   
     var scriptRam = ns.getScriptRam(script, node);
-    var ramInfo = ns.getServerRam(node);
-    var ram = ramInfo[0];
+    var totalRam = ns.getServerMaxRam(node);
+    var ram = totalRam;
     var divider = ram / numOfTargets;
     return Math.floor(divider / scriptRam);
 
