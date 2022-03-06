@@ -34,7 +34,7 @@ export async function main(ns) {
         }
         else{
           crackNode(node);
-          ns.scp("node-hack.js",node.name);
+          await ns.scp("node-hack.js",node.name);
         }
       }
       await ns.sleep(20000);
