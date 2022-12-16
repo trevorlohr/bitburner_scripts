@@ -44,6 +44,6 @@ if (maxMoney.length) {
     return x.name;
   });
 }
-await ns.write("targets.txt", crackedServers, "w");
-await ns.write("foundnodes.txt", foundnodes, "w");
+await ns.write("targets.txt", String(crackedServers), "w");
+await ns.write("foundnodes.txt", String(foundnodes), "w");
 }
