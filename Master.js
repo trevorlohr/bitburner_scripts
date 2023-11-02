@@ -26,12 +26,10 @@
             serverReset(ns);
             await ns.sleep(10000);
             for(let each of nodes){
-                ns.tprint(each);
                 let ram =ns.getServerMaxRam(each);
                 ns.scp("weak.js", each, "home");
                 
                 let threads = Math.floor(ram / ns.getScriptRam("weak.js", each));
-                ns.tprint(ns.getScriptRam("weak.js", each))
                 await runHack(ns, "weak.js", each, threads, "joesguns");
             }
             let left = ns.getServerMaxRam("home") - ns.getServerUsedRam("home")
