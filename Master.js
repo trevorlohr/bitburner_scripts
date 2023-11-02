@@ -27,14 +27,14 @@
             await ns.sleep(10000);
             for(let each of nodes){
                 ns.tprint(each);
-                let ram =ns.getServerRam(each)[0];
-                ns.scp("weak.js", "home", each);
+                let ram =ns.getServerMaxRam(each);
+                ns.scp("weak.js", each, "home");
                 
                 let threads = Math.floor(ram / ns.getScriptRam("weak.js", each));
+                ns.tprint(ns.getScriptRam("weak.js", each))
                 await runHack(ns, "weak.js", each, threads, "joesguns");
             }
-            let homeRam = ns.getServerRam("home");
-            let left = homeRam[0]- homeRam[1]
+            let left = ns.getServerMaxRam("home") - ns.getServerUsedRam("home")
             await ns.run("weak.js",(Math.floor(left / ns.getScriptRam("weak.js", "home"))),"joesguns")
             ns.exit();
         }
