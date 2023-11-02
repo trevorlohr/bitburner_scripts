@@ -47,9 +47,9 @@ export async function main(ns) {
       ns.print("Max servers. Max RAM.");
     }
   }
-  if(numToBuy.length === 0 && numOfServers === 0){
+  if(numToBuy.length === 0 || numOfServers < 25){
     while(numOfServers < 25 && moneyCheck(topGB)){
-      ns.purchaseServer("Hack",topGB)
+      ns.purchaseServer("Hack" + numOfServers,topGB)
       numOfServers++;
     }
     ns.exit();
