@@ -13,7 +13,7 @@ export async function main(ns) {
   let numOfServers = servers.length;
   let raiseGB = (num) => {return num * 2};
   servers = servers.map(x => {
-    return { name: x, ram: ns.getServerRam(x)[0] };
+    return { name: x, ram: ns.getServerMaxRam(x)};
   });
   if(servers.length === 0 && moneyCheck(64) === true){
     ns.purchaseServer("Hack",64);
