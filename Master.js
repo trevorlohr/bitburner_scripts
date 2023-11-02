@@ -72,7 +72,7 @@
             }
         }
         let targets = ns.read("targets.txt").split(",");
-        let ramLeft = totalRam - homeRamInfo[1];
+        let ramLeft = totalRam - ns.getServerUsedRam("home");
         let threads = Math.floor(
             Math.floor((ramLeft * 0.8) / targets.length) /
             ns.getScriptRam("node-hack.js", "home")
