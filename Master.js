@@ -26,22 +26,20 @@
             serverReset(ns);
             await ns.sleep(10000);
             for(let each of nodes){
-                ns.tprint(each);
-                let ram =ns.getServerRam(each)[0];
-                ns.scp("weak.js", "home", each);
+                let ram =ns.getServerMaxRam(each);
+                ns.scp("weak.js", each, "home");
                 
                 let threads = Math.floor(ram / ns.getScriptRam("weak.js", each));
                 await runHack(ns, "weak.js", each, threads, "joesguns");
             }
-            let homeRam = ns.getServerRam("home");
-            let left = homeRam[0]- homeRam[1]
+            let left = ns.getServerMaxRam("home") - ns.getServerUsedRam("home")
             await ns.run("weak.js",(Math.floor(left / ns.getScriptRam("weak.js", "home"))),"joesguns")
             ns.exit();
         }
         await ns.run("scanner.js", 1);
         await ns.sleep(8000);
-        let homeRamInfo = ns.getServerRam("home");
-        let totalRam = homeRamInfo[0];
+        let homeRamInfo = ns.getServerMaxRam("home");
+        let totalRam = homeRamInfo;
 
 
         if (reason === "nodes") {
@@ -72,7 +70,7 @@
             }
         }
         let targets = ns.read("targets.txt").split(",");
-        let ramLeft = totalRam - homeRamInfo[1];
+        let ramLeft = totalRam - ns.getServerUsedRam("home");
         let threads = Math.floor(
             Math.floor((ramLeft * 0.8) / targets.length) /
             ns.getScriptRam("node-hack.js", "home")
@@ -82,7 +80,7 @@
             await runHack(ns, "node-hack.js", "home", threads, target);
             await ns.sleep(2000);
         }
-        if(ns.getServerRam("home")[0] - ns.getServerRam("home")[0] > ns.getScriptRam("stockmarket.js", "home")){
+        if(ns.getServerMaxRam("home") - ns.getServerUsedRam("home") > ns.getScriptRam("stockmarket.js", "home")){
             await ns.run("stockmarket.js", 1);
         }
         }

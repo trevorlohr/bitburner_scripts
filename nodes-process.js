@@ -45,7 +45,7 @@ export async function main(ns) {
   function init() {
     var foundNodes = ns.read("foundnodes.txt");
     for (let node of foundNodes.split(",")) {
-      let totalRam = ns.getServerRam(node);
+      let totalRam = ns.getServerMaxRam(node);
       let numOfTargets = ns.read("targets.txt").length;
 
       let numOfThreadsPerTarget = getNumOfThreadsPerTarget(

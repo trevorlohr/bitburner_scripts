@@ -27,10 +27,11 @@ export async function main(ns) {
       crackedServers.push(node);
     }
   }
+
   let maxMoney = [];
   for (let each of crackedServers) {
     let money = ns.getServerMaxMoney(each);
-    if(ns.getServerRequiredHackingLevel(each) <= ns.getHackingLevel() && ns.hasRootAccess(each)){
+    if (ns.getServerRequiredHackingLevel(each) <= ns.getHackingLevel() && ns.hasRootAccess(each)) {
       maxMoney.push({ name: each, maxMoney: money });
     }
   }
@@ -39,11 +40,13 @@ export async function main(ns) {
     if (a.maxMoney > b.maxMoney) return 1;
     return 0;
   });
-if (maxMoney.length) {
-  crackedServers = maxMoney.slice(-3).map(x => {
-    return x.name;
-  });
-}
-await ns.write("targets.txt", crackedServers, "w");
-await ns.write("foundnodes.txt", foundnodes, "w");
+  if (maxMoney.length) {
+         
+    crackedServers = maxMoney.slice(-3).map(x => {
+      return x.name;
+    });
+  }
+
+  await ns.write("targets.txt", String(crackedServers), "w");
+  await ns.write("foundnodes.txt", String(foundnodes), "w");
 }
